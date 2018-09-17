@@ -11,11 +11,12 @@ body {
 :root {
   --aspect-ratio: 1056px/691;
 }
-.card {
+.player-hand img,
+.dealer-hand img {
   display: inline-block;
   width: 100px;
-  height: calc(var(--aspect-ratio) * width);
-  background-size: cover;
+  height: calc(var(--aspect-ratio) * 100);
+  /* background-size: cover; */
   margin: 10px;
 }
 button {
@@ -33,9 +34,10 @@ aside {
   display: flex;
   flex-direction: column;
 }
-.hand {
+section {
   border: 10px solid purple;
-  display: flex;
+  display: inline-flex;
+  flex-direction: row;
 }
 .hide {
   display: none;

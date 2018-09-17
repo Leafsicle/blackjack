@@ -15,10 +15,29 @@ const dealToPlayer = () => {
   let card = deck.pop();
   // that card is sent to the player's hand\
   playerHand.push(card);
-  console.log(`the player has the ${card.value} of ${card.suit}`);
-  playerScoreCalc();
-};
 
+  console.log(`the player has the ${card.value} of ${card.suit}`);
+
+  const playerHandDiv = document.querySelector(`.player-hand`);
+
+  let image = document.createElement('img');
+  image.src = `/images/${card.face}${card.suit}.jpg`;
+  playerHandDiv.appendChild(image);
+};
+const dealToDealer = () => {
+  // one card is removed from the deck
+  let card = deck.pop();
+  // that card is sent to the dealer's hand\
+  dealerHand.push(card);
+
+  console.log(`the dealer has the ${card.value} of ${card.suit}`);
+
+  const dealerHandDiv = document.querySelector(`.dealer-hand`);
+
+  let image = document.createElement('img');
+  image.src = `/images/${card.face}${card.suit}.jpg`;
+  dealerHandDiv.appendChild(image);
+};
 let playerScoreCalc = () => {
   if (
     playerHand.length === 2 ||
@@ -57,12 +76,6 @@ let dealerScoreCalc = () => {
   // hardStop();
 };
 
-const dealToDealer = () => {
-  card = deck.pop();
-  dealerHand.push(card);
-  console.log(`the dealer has the ${card.face} of ${card.suit}`);
-  dealerScoreCalc();
-};
 const winLossCalc = () => {
   if (dealerScore < playerScore) {
     decision.textContent = `You have ${playerScore} and the dealer has ${dealerScore}. You win.`;
@@ -74,22 +87,22 @@ const winLossCalc = () => {
     decision.textContent = `You have ${playerScore} and the dealer has ${dealerScore}. The house wins! Try again.`;
   }
 };
-// const hardstop = () => {
-//   document.querySelector('.hit').classList.add('hide');
-//   document.querySelector('.stay').classList.add('hide');
+const hardstop = () => {
+  document.querySelector('.hit').classList.add('hide');
+  document.querySelector('.stay').classList.add('hide');
 
-//   dealCardToDealer();
-//   dealerScoreCalc();
-//   if (dealerScore < 17) {
-//     hardStop();
-//   }
-//   if (dealerScore >= 17 && dealerScore <= 21) {
-//     winLossCalc();
-//   }
-//   if (dealerScore > 21) {
-//     decision.textContent = `The dealer has busted with a score of ${dealerScore}, you are victorious!`;
-//   }
-// };
+  dealCardToDealer();
+  dealerScoreCalc();
+  if (dealerScore < 17) {
+    hardStop();
+  }
+  if (dealerScore >= 17 && dealerScore <= 21) {
+    winLossCalc();
+  }
+  if (dealerScore > 21) {
+    decision.textContent = `The dealer has busted with a score of ${dealerScore}, you are victorious!`;
+  }
+};
 const addCard = () => {
   dealToPlayer();
   playerScoreCalc();
@@ -104,9 +117,10 @@ const addCard = () => {
 };
 const main = () => {
   let dealbutton = document.querySelector('.deal');
-  dealbutton.addEventListener('click', dealToPlayer);
+  // dealbutton.addEventListener('click', dealToPlayer);
+  document.querySelector('button.hit').addEventListener('click', dealToPlayer);
 
-  let suits = ['clubs', 'spades', 'diamonds', 'hearts'];
+  let suits = ['C', 'S', 'D', 'H'];
   let cards = [
     { value: 2, face: '2' },
     { value: 3, face: '3' },
@@ -153,13 +167,6 @@ const main = () => {
   dealToPlayer();
   dealToDealer();
   dealToDealer();
-
-  document.querySelector('button.hit').addEventListener('click', dealToPlayer);
 };
-
-// if ${playerScore}=== 21 || ${dealerScore}===21 {
-
-//   alert(`Blackjack!`) else
-// }
 
 document.addEventListener('DOMContentLoaded', main);
