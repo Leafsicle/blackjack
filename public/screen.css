@@ -29,13 +29,14 @@ div {
   justify-content: center;
   flex-direction: column;
 }
-.house {
-  border: 3px solid black;
+aside {
   display: flex;
-}
-.player {
-  border: 3px dashed black;
+  flex-direction: column;
 }
 .hand {
   border: 10px solid purple;
+  display: flex;
+}
+.hide {
+  display: none;
 }

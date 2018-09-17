@@ -10,30 +10,29 @@
 
 <body>
   <div>
-    <h1>This is a header</h1>
-    <main class="dealer">House
-      <section class="hand">
-        <div class="card card-1">a card would be here</div>
-        <div class="card card-2">a card would be here</div>
-        <div class="card card-3">a card would be here</div>
-        <div class="card card-4">a card would be here</div>
-        <div class="card card-5">a card would be here</div>
-      </section>
-    </main>
-    <div class="player">player
-      <section class="hand">
-        <div class="card card-1">a card would be here</div>
-        <div class="card card-2">a card would be here</div>
-        <div class="card card-3">a card would be here</div>
-        <div class="card card-4">a card would be here</div>
-        <div class="card card-5">a card would be here</div>
-      </section>
-      <section class="ui">
-        <button class="deal" title="Start the game">Deal</button>
-        <button class="hit hide" title="add 1 card to your hand">Hit</button>
-        <button class="stay hide" title="keep your current score">Stay</button>
-      </section>
-    </div>
+    <h1 class="decision"> Blackjack</h1>
+    <section class="hand dealerhand dealer">dealer score=
+      <aside class="score"></aside>
+      <div class="card card1">card</div>
+      <div class="card card2">card</div>
+      <div class="card card3">card</div>
+      <div class="card card4">card</div>
+      <div class="card card5">card</div>
+    </section>
+    <section class="hand playerhand player">player score =
+      <aside class="score"> </aside>
+      <div class="card card1">card</div>
+      <div class="card card2">card</div>
+      <div class="card card3">card</div>
+      <div class="card card4">card</div>
+      <div class="card card5">card</div>
+    </section>
+    <section class="ui">
+      <button class="deal" title="Start the game">Deal</button>
+      <button class="hit" title="add 1 card to your hand">Hit</button>
+      <button class="stay" title="keep your current score">Stay</button>
+    </section>
+  </div>
   </div>
   <script src="/main.js" charset="utf-8"></script>
 </body>
