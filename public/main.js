@@ -1,41 +1,47 @@
 let playerHand = []
 let dealerHand = []
 let deck = []
+
 const dealToPlayer = () => {
-  // 1st card dealt to player
+  // one card is removed from the deck
   let card = deck.pop()
+  // that card is sent to the player's hand
   playerHand.push(card)
-  // 2nd card dealt to player
-  card = deck.pop()
-  playerHand.push(card)
+  // idiot test to make sure that it went to the right spot
+  console.log(
+    `the player has the ${card.face} of ${card.suit} and is worth ${
+      card.value
+    } points`
+  )
+  console.log(`${card.value}+${card.value}`)
 }
-// const dealToDealer = () => {
-//   // 1st card dealt to dealer
-//   card = deck.pop()
-//   dealerHand.push(card)
-//   // 2nd card dealt to dealer
-//   card = deck.pop()
-//   dealerHand.push(card)
-// }
+
+const dealToDealer = () => {
+  card = deck.pop()
+  dealerHand.push(card)
+  console.log()
+}
 const main = () => {
-  let suits = ["clubs", "spades", "diamonds", "hearts"]
+  let dealbutton = document.querySelector('.deal')
+  dealbutton.addEventListener('click', dealToPlayer)
+
+  let suits = ['clubs', 'spades', 'diamonds', 'hearts']
   let cards = [
-    { value: 2, face: "2" },
-    { value: 3, face: "3" },
-    { value: 4, face: "4" },
-    { value: 5, face: "5" },
-    { value: 6, face: "6" },
-    { value: 7, face: "7" },
-    { value: 8, face: "8" },
-    { value: 9, face: "9" },
+    { value: 2, face: '2' },
+    { value: 3, face: '3' },
+    { value: 4, face: '4' },
+    { value: 5, face: '5' },
+    { value: 6, face: '6' },
+    { value: 7, face: '7' },
+    { value: 8, face: '8' },
+    { value: 9, face: '9' },
 
-    { value: 10, face: "10" },
-    { value: 10, face: "J" },
-    { value: 10, face: "Q" },
-    { value: 10, face: "K" },
-    { value: 11, face: "A" }
+    { value: 10, face: '10' },
+    { value: 10, face: 'J' },
+    { value: 10, face: 'Q' },
+    { value: 10, face: 'K' },
+    { value: 11, face: 'A' }
   ]
-
   // loop through all the suits
   suits.forEach(suit => {
     // Do this for each suit
@@ -48,7 +54,6 @@ const main = () => {
         value: card.value,
         face: card.face
       }
-
       // add it to the deck
       deck.push(nextCard)
     })
@@ -63,22 +68,14 @@ const main = () => {
     deck[i] = secondCard
     deck[j] = firstCard
   }
-  console.log(deck)
 
-  // // generate player hand
-  // let card = deck.pop()
-  // playerHand.push(card)
+  dealToPlayer()
+  dealToPlayer()
+  dealToDealer()
+  dealToDealer()
 
-  // card = deck.pop()
-  // playerHand.push(card)
-  // generate dealers hand
-  // card = deck.pop()
-  // dealerHand.push(card)
-
-  // card = deck.pop()
-  // dealerHand.push(card)
-  document.querySelector("button").addEventListener("click", dealToPlayer)
-  // document.querySelector('button.deal').addEventListener('click', dealToDealer){
+  document.querySelector('.deal').addEventListener('click', dealToPlayer)
+  document.querySelector('button.hit').addEventListener('click', dealToPlayer)
 }
 
-document.addEventListener("DOMContentLoaded", main)
+document.addEventListener('DOMContentLoaded', main)
