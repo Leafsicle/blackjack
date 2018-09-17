@@ -25,7 +25,7 @@ let playerScoreCalc = () => {
     playerHand.length === 3 ||
     playerHand.length === 4 ||
     playerHand.length === 5
-  )
+  ) {
     playerScore =
       playerHand[0].value +
       playerHand[1].value +
@@ -33,7 +33,8 @@ let playerScoreCalc = () => {
       playerHand[3].value +
       playerHand[4].value +
       playerHand[5].value;
-  scorePlayer.textContent = playerScore;
+    scorePlayer.textContent = playerScore;
+  }
   // hardStop();
 };
 
@@ -43,7 +44,7 @@ let dealerScoreCalc = () => {
     dealerHand.length === 3 ||
     dealerHand.length === 4 ||
     dealerHand.length === 5
-  )
+  ) {
     dealerScore =
       dealerHand[0].value +
       dealerHand[1].value +
@@ -51,7 +52,8 @@ let dealerScoreCalc = () => {
       dealerHand[3].value +
       dealerHand[4].value +
       dealerHand[5].value;
-  scoredealer.textContent = dealerScore;
+    scoredealer.textContent = dealerScore;
+  }
   // hardStop();
 };
 
